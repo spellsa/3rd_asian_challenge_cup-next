@@ -1,0 +1,242 @@
+.hiddenProfileInput {
+    display: none;
+}
+
+/* プロフィールセクション */
+.profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+
+.profileIcon {
+    width: clamp(5em, 15vw, 7em);
+    height: clamp(5em, 15vw, 7em);
+    border-radius: 50%;
+    display: block;
+    margin: 1em auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.profileIcon:hover {
+    opacity: 0.8;
+}
+
+.FaPenIcon {
+    opacity: 0;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 2.5em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.FaPenIcon:hover {
+    opacity: 0.5;
+}
+
+.userName {
+    text-align: center;
+    font-size: clamp(2em, 5vw, 3em);
+    font-weight: bold;
+    margin: 0.5em 0;
+    padding: 0 1em;
+    word-break: break-word;
+}
+
+.FaPenName {
+    margin-left: 0.5em;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.nameEditMode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 2em 0;
+  padding: 0 1em;
+  width: 100%;
+}
+
+.nameEditInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1.2em;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.submitNameButton,
+.cancelNameButton {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.submitNameButton {
+  background-color: var(--color-primary);
+}
+
+.submitNameButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.cancelNameButton {
+  background-color: #6c757d;
+}
+
+.cancelNameButton:hover {
+  background-color: #545b62;
+}
+
+.notEditedChange,
+.editedChange {
+  display: block;
+  margin: 2em auto;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 90%;
+  max-width: 300px;
+}
+
+.notEditedChange {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.editedChange {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.editedChange:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.userLevel {
+  text-align: center;
+  margin: 3em 0 2em 0;
+}
+
+.userLevel span {
+    font-size: clamp(2em, 6vw, 3em);
+    border-bottom: solid #aaa 2px;
+    padding: 0.5em 1em;
+    display: inline-block;
+}
+
+.toNextLevelExp {
+  text-align: center;
+  font-size: clamp(1em, 3vw, 1.5em);
+  margin: 1em 0;
+  color: var(--text-sub);
+}
+
+/* クイズセクション */
+.quizLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em;
+  margin: 1em auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 90%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.quizLink:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quizLink h3 {
+  font-family: var(--font-rounded);
+  font-size: clamp(1em, 2.5vw, 1.3em);
+  margin: 0;
+  color: var(--text-main);
+  text-align: center;
+  word-break: break-word;
+}
+
+/* ==================== レスポンシブデザイン ==================== */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+  .profileIcon {
+    margin: 1em 0 1em 2em;
+    float: left;
+  }
+
+  .userName {
+    text-align: left;
+    margin-left: calc(clamp(5em, 15vw, 7em) + 3em);
+    margin-top: 2em;
+  }
+
+  .nameEditMode {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: calc(clamp(5em, 15vw, 7em) + 3em);
+  }
+
+  .nameEditInput {
+    max-width: 300px;
+  }
+
+  .editedChange,
+  .notEditedChange {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+/* デスクトップ (1024px以上) */
+@media (min-width: 1024px) {
+  .profile {
+    padding: 3em 2em;
+  }
+
+  .quizLink {
+    width: 70%;
+  }
+}
+
+/* モバイル (小画面) */
+@media (max-width: 480px) {
+  .profile {
+    padding: 1em 0.5em;
+  }
+
+  .nameEditMode {
+    gap: 8px;
+  }
+
+  .submitNameButton,
+  .cancelNameButton {
+    width: 100%;
+    max-width: 150px;
+  }
+}

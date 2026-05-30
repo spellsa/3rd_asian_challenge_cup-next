@@ -1,0 +1,364 @@
+.answer {
+  font-family: var(--font-rounded);
+  padding: 20px;
+  background-color: var(--bg-app);
+  min-height: 100vh;
+}
+
+.answerTitle {
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 30px;
+  font-size: clamp(1.5em, 4vw, 2em);
+}
+
+.gradingMessage {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: clamp(1em, 2.5vw, 1.2em);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.questionDescription {
+  background-color: var(--bg-surface);
+  padding: clamp(15px, 3vw, 30px);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.answerResult {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.answerResult h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.answerNumber {
+  font-size: clamp(1.2em, 3vw, 1.5em);
+  color: var(--text-sub); /* #555 */
+}
+
+.correction {
+  font-size: clamp(1.1em, 2.5vw, 1.3em);
+  font-weight: bold;
+}
+
+.correct {
+  color: var(--color-success);
+}
+
+.wrong {
+  color: var(--color-danger);
+}
+
+/* Common styles for question types */
+.trueFalseAnswer,
+.fillInTheBlankAnswer,
+.singleChoiceAnswer,
+.multipleChoiceAnswer,
+.freeTextAnswer,
+.elseAnswer {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Maybe var(--bg-subtle) */
+}
+.orderingAnswer {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.trueFalseStatement,
+.fillInTheBlankStatement,
+.singleChoiceStatement,
+.multipleChoiceStatement,
+.freeTextStatement,
+.elseStatement {
+  font-size: clamp(1em, 2vw, 1.1em);
+  color: var(--text-main);
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.userAnswerTrueFalse,
+.modelAnswerTrueFalse,
+.userAnswerSingleChoice,
+.modelAnswerSingleChoice,
+.userAnswerMultipleChoice,
+.modelAnswerMultipleChoice,
+.userAnswerFreeText,
+.modelAnswerFreeText,
+.userAnswerElse,
+.modelAnswerElse {
+  font-size: clamp(0.9em, 1.8vw, 1em);
+  color: var(--text-sub);
+  margin-top: 8px;
+  word-break: break-word;
+}
+
+.orderingStatement,
+.orderingUserAnswer,
+.orderingModelAnswer {
+  font-size: clamp(0.9em, 1.8vw, 1em);
+  color: var(--text-main);
+}
+
+.ordering-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.ordering-chip {
+  padding: 6px 12px;
+  background-color: #eef2ff; /* var(--color-blue-50) maybe? */
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  font-size: 0.9em;
+}
+
+.ordering-empty {
+  color: #999;
+  margin-left: 8px;
+}
+
+/* Fill in the blank specific styles */
+.FillInTheBlankInput {
+  font-family: var(--font-rounded);
+  background-color: #fff;
+  border: solid 1px #333;
+  font-size: clamp(18px, 3vw, 24px);
+  border-radius: 5px;
+  padding: 0.3em;
+}
+
+.FillInTheBlankInput:focus {
+  border: solid 3px var(--color-primary);
+}
+
+.fillInTheBlankStatement input.FillInTheBlankResponse {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin: 0 5px;
+  background-color: #e9ecef;
+  color: #495057;
+  cursor: default;
+  font-family: var(--font-rounded);
+  font-size: clamp(0.9em, 1.5vw, 1em);
+}
+
+/* Single and Multiple Choice specific styles */
+.checkBoxSingleChoice,
+.checkBoxMultipleChoice {
+  margin-right: 15px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.checkBoxSingleChoice input[type="button"],
+.checkBoxMultipleChoice input[type="button"] {
+  padding: 8px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #495057;
+  cursor: default;
+  font-family: var(--font-rounded);
+  font-size: clamp(0.8em, 1.5vw, 0.9em);
+}
+
+.answerSingleChoice,
+.answerMultipleChoice {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  border-color: var(--color-primary) !important;
+}
+
+.notAnswerSingleChoice,
+.notAnswerMultipleChoice {
+  opacity: 0.7;
+}
+
+.aiExplanation {
+  font-size: clamp(0.85em, 1.5vw, 0.95em);
+  color: #6c757d;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed #e0e0e0;
+  word-break: break-word;
+}
+
+.ai-login-hint {
+  margin-top: 10px;
+  font-size: clamp(0.85em, 1.6vw, 0.95em);
+  color: var(--color-gray-900);
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.explanation {
+  font-size: clamp(0.9em, 1.8vw, 1em);
+  color: var(--text-sub);
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  word-break: break-word;
+}
+
+.backPageButtons {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.backTop,
+.backQuestion {
+  padding: 12px 24px;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.9em, 2vw, 1em);
+  font-family: var(--font-rounded);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 90%;
+  max-width: 300px;
+}
+
+.backTop {
+  background-color: #6c757d;
+  color: white;
+}
+
+.backTop:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.backQuestion {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.backQuestion:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.notFoundAPI {
+  text-align: center;
+  padding: clamp(30px, 5vw, 50px);
+  background-color: #fff;
+  margin: 50px auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+}
+
+.notFoundError {
+  color: var(--color-danger);
+  font-size: clamp(1.5em, 4vw, 2em);
+  margin-bottom: 15px;
+}
+
+.notFoundExplanation {
+  color: #6c757d;
+  font-size: clamp(1em, 2vw, 1.1em);
+  margin-bottom: 30px;
+}
+
+.answerResult h3 {
+  display: block;
+}
+
+.modelAnswerFillInTheBlank span {
+  padding-right: 2em;
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+/* ==================== レスポンシブデザイン ==================== */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+  .answer {
+    padding: 30px;
+  }
+
+  .backPageButtons {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .backTop,
+  .backQuestion {
+    width: auto;
+    min-width: 200px;
+    margin: 0 10px;
+  }
+
+  .checkBoxSingleChoice,
+  .checkBoxMultipleChoice {
+    margin-right: 20px;
+  }
+}
+
+/* デスクトップ (1024px以上) */
+@media (min-width: 1024px) {
+  .answer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .questionDescription {
+    padding: 40px;
+  }
+}
+
+/* モバイル (小画面) */
+@media (max-width: 480px) {
+  .answer {
+    padding: 10px;
+  }
+
+  .questionDescription {
+    padding: 15px;
+  }
+
+  .checkBoxSingleChoice,
+  .checkBoxMultipleChoice {
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .checkBoxSingleChoice input[type="button"],
+  .checkBoxMultipleChoice input[type="button"] {
+    width: 100%;
+  }
+}

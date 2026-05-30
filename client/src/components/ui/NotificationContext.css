@@ -1,0 +1,53 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.notification-toast {
+  pointer-events: auto;
+  min-width: 250px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  animation: slideIn 0.3s ease-out forwards;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-left: 6px solid var(--border-default);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification-toast.info {
+  border-left-color: var(--color-info); /* Blue */
+}
+
+.notification-toast.success {
+  border-left-color: var(--color-success); /* Green */
+}
+
+.notification-toast.error {
+  border-left-color: var(--color-danger); /* Red */
+}
+
+.notification-toast.warning {
+  border-left-color: var(--color-amber-500); /* Amber */
+}

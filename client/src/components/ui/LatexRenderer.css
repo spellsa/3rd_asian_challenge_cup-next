@@ -1,0 +1,42 @@
+/* Force light theme for markdown regardless of OS preference */
+.markdown-body--light {
+  color-scheme: light;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+.markdown-body--light p,
+.markdown-body--light li,
+.markdown-body--light h1,
+.markdown-body--light h2,
+.markdown-body--light h3,
+.markdown-body--light h4,
+.markdown-body--light h5,
+.markdown-body--light h6,
+.markdown-body--light blockquote,
+.markdown-body--light table,
+.markdown-body--light th,
+.markdown-body--light td {
+  color: inherit;
+}
+
+.markdown-body--light code,
+.markdown-body--light pre,
+.markdown-body--light code span,
+.markdown-body--light pre code {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.markdown-body--light blockquote {
+  background-color: var(--bg-subtle);
+  border-left: 4px solid var(--border-default);
+}
+
+.markdown-body--light table {
+  border-color: var(--border-default);
+}
+
+.markdown-body--light hr {
+  background-color: var(--border-default);
+}

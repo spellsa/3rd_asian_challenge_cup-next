@@ -1,0 +1,269 @@
+.edit-quiz-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+/* Sticky Header */
+.edit-quiz-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-default);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-left h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-sub);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: var(--radius-round);
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* keep as simple transparent overlay or use bg-subtle */
+  color: var(--text-main);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 145, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background-color: #a0cfff; /* maybe map to primitive blue-something */
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-sub);
+  border: 1px solid var(--border-default);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--color-gray-400);
+  color: var(--text-main);
+}
+
+/* Metadata Card */
+.quiz-metadata-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 0 1rem 2rem 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-default);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: var(--font-rounded);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  resize: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 145, 255, 0.1);
+}
+
+/* Questions List */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 1rem;
+}
+
+/* Add Button Area */
+.add-question-area {
+  margin: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-add-large {
+  background-color: white;
+  border: 2px dashed var(--color-primary);
+  color: var(--color-primary);
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-add-large:hover {
+  background-color: var(--color-blue-50);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .edit-quiz-header-sticky {
+    padding: 1rem;
+  }
+  .quiz-metadata-card {
+    padding: 1.5rem;
+  }
+}
+
+.question-wrapper {
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.question-wrapper.selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 145, 255, 0.1);
+  transform: scale(1.01);
+}
+
+.question-wrapper.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ドラッグハンドル */
+.drag-handle {
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+  background: linear-gradient(to bottom, #f5f5f5, #fafbfc);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.question-wrapper:hover .drag-handle {
+  opacity: 1;
+}
+
+.drag-handle:hover {
+  background: linear-gradient(to bottom, #e8e8e8, #f0f0f0);
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.drag-handle-icon {
+  color: var(--text-light); /* #999 */
+  transition: color 0.2s;
+}
+
+.drag-handle:hover .drag-handle-icon {
+  color: var(--text-sub);
+}
+
+.insert-between-btn {
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 145, 255, 0.5);
+  background-color: #fff;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.question-wrapper:hover .insert-between-btn,
+.insert-between-btn:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.insert-between-btn:hover {
+  background-color: var(--color-blue-50);
+  border-color: var(--color-primary-hover);
+}

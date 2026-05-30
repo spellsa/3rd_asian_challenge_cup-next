@@ -1,0 +1,37 @@
+@import './primitives.css';
+@import './theme.css';
+
+/* ==============================================
+   Font Definitions
+   ============================================== */
+@font-face {
+  font-family: "Kosugi-Maru";
+  src: url(/Kosugi_Maru/KosugiMaru-Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "smart-font";
+  src: url(/SmartFontUI/SmartFont-P/03SmartFont-P.ttf);
+  font-display: swap;
+}
+
+/* ==============================================
+   Global Resets & Base Styles
+   ============================================== */
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Common Utility Classes (Optional but helpful) */
+.text-center { text-align: center; }
+.w-full { width: 100%; }
