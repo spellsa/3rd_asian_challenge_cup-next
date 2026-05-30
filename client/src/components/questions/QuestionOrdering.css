@@ -1,0 +1,117 @@
+.ordering-container {
+  background-color: white; /* hardcode white for now as it's partial container */
+  margin-right: 1em;
+  height: auto;
+  margin-bottom: 5%;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .3);
+  padding: 2em;
+  font-family: var(--font-rounded);
+}
+
+.ordering-question-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1em;
+}
+
+.ordering-question-number {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ordering-reset-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-sub);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.ordering-reset-btn:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.ordering-question-text {
+  font-size: 1.05em;
+}
+
+.form-explain {
+  display: block;
+  color: var(--text-sub);
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+}
+
+.answer-area {
+  min-height: 80px;
+  border: 2px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: var(--bg-subtle);
+  transition: border-color 0.2s;
+}
+
+.answer-area:hover {
+  border-color: var(--color-gray-400);
+}
+
+.options-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+}
+
+.tile {
+  padding: 12px 20px;
+  background-color: var(--bg-aliceblue);
+  border: 1px solid #b1b1b1; /* Keep original border style */
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  font-family: var(--font-rounded);
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.tile:hover {
+  border-color: var(--text-sub);
+  transform: translateY(-2px);
+}
+
+.tile:active {
+  transform: translateY(0);
+}
+
+/* Style for tiles in the answer area - keep visual consistent with source tiles */
+.answer-area .tile {
+  background-color: var(--bg-aliceblue);
+  border: 1px solid #b1b1b1;
+  color: #000;
+  padding: 12px 20px;
+}
+
+.answer-area .tile:hover {
+  border-color: var(--text-sub);
+}

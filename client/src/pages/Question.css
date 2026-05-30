@@ -1,0 +1,137 @@
+/* 問題セットのタイトル */
+.quiz-title-header {
+  background-color: var(--color-white);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-title-header h1 {
+  margin: 0;
+  font-family: var(--font-rounded);
+  font-size: clamp(1.2em, 4vw, 1.8em);
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.submitButton {
+  margin: 3% auto 5%;
+  padding: 1em 2em;
+  border-radius: 10px;
+  background-color: var(--color-green-400); /* #93dfab */
+  border: 1px solid #8d8d8d;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  font-family: var(--font-rounded);
+  font-size: clamp(1em, 3vw, 1.5em);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  width: 90%;
+  max-width: 300px;
+}
+
+.submitButton:hover {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.submitButton span {
+  font-family: var(--font-rounded);
+  display: inline;
+}
+
+ul {
+  background-color: #f6f7fb; /* Close to gray-50 but slightly blueish. Keeping hardcode or use bg-app? Use bg-app/gray-100 */
+  background-color: var(--bg-app);
+  padding: 5% 2%;
+  margin: 0;
+  list-style: none;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.ai-login-banner {
+  margin: 20px auto;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background-color: transparent;
+  color: var(--color-gray-900);
+  font-family: var(--font-rounded);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ai-login-button {
+  align-self: flex-start;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-400);
+  background-color: transparent;
+  color: var(--color-gray-900);
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ai-login-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.userLevel {
+  margin: 2em 1em;
+  text-align: center;
+  font-size: clamp(1.2em, 3vw, 1.5em);
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+/* ==================== レスポンシブデザイン ==================== */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+  .submitButton {
+    width: 60%;
+  }
+
+  ul {
+    padding: 3% 5%;
+  }
+
+  .ai-login-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* デスクトップ (1024px以上) */
+@media (min-width: 1024px) {
+  .submitButton {
+    width: 40%;
+    max-width: 400px;
+  }
+}
+
+/* モバイル (小画面) */
+@media (max-width: 480px) {
+  .submitButton {
+    width: 95%;
+    margin: 5% auto;
+  }
+
+  ul {
+    padding: 5% 1%;
+  }
+
+  .ai-login-banner {
+    width: 95%;
+  }
+}

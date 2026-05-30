@@ -1,0 +1,549 @@
+/* input[type="file"] を非表示にする */
+.hiddenInput {
+  display: none;
+}
+
+/* ==================== 新規: 2カラムレイアウト ==================== */
+.generatorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 1em;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .generatorContainer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .leftColumn {
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .rightColumn {
+    flex: 1.2;
+    max-width: 600px;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 1.5em;
+  background-color: var(--bg-soft-accent); /* #fafafa -> close enough */
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTitle {
+  font-family: var(--font-rounded);
+  font-size: 1.5em;
+  margin: 0 0 0.5em 0;
+  color: var(--text-main);
+}
+
+/* ==================== プロンプト入力 ==================== */
+.promptSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.promptLabel {
+  font-family: var(--font-rounded);
+  font-size: 1.1em;
+  color: var(--text-main);
+}
+
+.promptBox {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.promptBox:focus {
+  outline: none;
+  border-color: var(--color-green-400); /* #93dfab */
+}
+
+.charCount {
+  font-size: 0.85em;
+  color: var(--text-light);
+  text-align: right;
+  font-family: var(--font-rounded);
+}
+
+/* ==================== 問題数選択 ==================== */
+.questionCountSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.questionCountLabel {
+  font-family: var(--font-rounded);
+  font-size: 1.1em;
+  color: var(--text-main);
+}
+
+.questionCountSelect {
+  padding: 0.7em;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.questionCountSelect:focus {
+  outline: none;
+  border-color: var(--color-green-400);
+}
+
+/* ==================== 問題形式選択 ==================== */
+.formatSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.formatTitle {
+  font-family: var(--font-rounded);
+  font-size: 1.1em;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.formatList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8em;
+}
+
+@media (max-width: 768px) {
+  .formatList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formatCard {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  background-color: var(--bg-surface);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.formatCard:hover {
+  background-color: var(--color-green-50);
+  border-color: var(--color-green-400);
+}
+
+.formatCard.selected {
+  background-color: var(--color-green-100); /* #e0f7ea */
+  border-color: var(--color-green-bright); /* #34db8d */
+  box-shadow: 0 2px 6px rgba(52, 219, 141, 0.2);
+}
+
+.formatCheckbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.formatInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  flex: 1;
+}
+
+.formatLabel {
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.formatDescription {
+  font-family: var(--font-rounded);
+  font-size: 0.9em;
+  color: var(--text-sub);
+}
+
+.formatHint {
+  font-family: var(--font-rounded);
+  font-size: 0.9em;
+  color: var(--text-light); /* #999 */
+  margin: 0;
+}
+
+.generatePrompt {
+  font-family: var(--font-rounded);
+  font-size: 1.5em;
+  color: #1d1d1d; /* Keep specific dark gray or move to text-main */
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5em 0 0 0;
+}
+
+/* ==================== 注意書き ==================== */
+.usageNote {
+  font-family: var(--font-rounded);
+  font-size: 0.9em;
+  color: var(--text-sub);
+  text-align: center;
+  margin: 0;
+}
+
+.noPreviewText {
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  color: var(--text-light);
+  text-align: center;
+  padding: 2em 1em;
+}
+
+/* ==================== 既存ボタンスタイル ==================== */
+.uploadButton,
+.generateButton,
+.notUploadButton {
+  background-color: white;
+  color: black;
+  border-radius: 18px;
+  padding: 1.5em;
+  margin: 1em auto;
+  border: 1px solid gray; /* gray-400 */
+  font-family: var(--font-rounded);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  width: 90%;
+  max-width: 300px;
+}
+
+.generateButton {
+  max-width: 400px;
+  font-size: clamp(1.2em, 3vw, 1.5em);
+  padding: 1em 2em;
+  margin: 2em auto;
+}
+
+.generateButton span {
+  color: black;
+  vertical-align: center;
+}
+
+.generateButton:hover {
+  background-color: var(--color-green-400); /* #93dfab */
+  animation: fadeIn 0.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  box-shadow: inset -3px -3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.uploadButton span,
+.notUploadButton span {
+  color: black;
+  vertical-align: center;
+  font-size: clamp(1.2em, 2.5vw, 1.5em);
+}
+
+.uploadButton,
+.notUploadButton {
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.uploadButton:hover,
+.notUploadButton:hover {
+  background-color: var(--color-green-400);
+  animation: fadeIn 0.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  box-shadow: none;
+}
+
+/* プレビュー */
+.imagePreview {
+  position: relative;
+  object-fit: contain;
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0.5em;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+iframe {
+  object-fit: contain;
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0.5em;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.pdfPreview {
+  object-fit: fill;
+}
+
+.preview-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  justify-items: center;
+  padding: 1em;
+  max-width: 100%;
+  margin: 0 auto 2em auto;
+  min-height: 200px;
+}
+
+.previewContainer {
+  position: relative;
+  margin-top: 2em;
+  text-align: center;
+}
+
+/* ローディング */
+.loader {
+  border: 12px solid var(--bg-soft-accent);
+  border-radius: 50%;
+  border-top: 12px solid var(--color-green-bright); /* #34db8d */
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+  margin: 10% auto;
+}
+
+.questionMaking {
+  text-align: center;
+  padding: 2em 1em;
+}
+
+.questionMaking .message_1 {
+  font-size: clamp(1.5em, 4vw, 2em);
+  font-family: var(--font-rounded);
+  margin-bottom: 1em;
+}
+
+.questionMaking .message_2 {
+  font-size: clamp(1em, 2.5vw, 1.2em);
+  font-family: var(--font-rounded);
+}
+
+.fileUploader {
+  margin: 2em 0;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ==================== レスポンシブデザイン ==================== */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+  .preview-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 90%;
+  }
+
+  .imagePreview,
+  iframe {
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  .uploadButton,
+  .notUploadButton {
+    width: 70%;
+  }
+}
+
+/* デスクトップ (1024px以上) */
+@media (min-width: 1024px) {
+  .preview-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+
+  .imagePreview,
+  iframe {
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .uploadButton,
+  .notUploadButton {
+    width: 50%;
+    max-width: 350px;
+  }
+
+  .generateButton {
+    max-width: 500px;
+  }
+}
+
+/* モバイル (小画面) */
+@media (max-width: 480px) {
+  .uploadButton,
+  .generateButton,
+  .notUploadButton {
+    width: 95%;
+    font-size: 1em;
+  }
+
+  .imagePreview,
+  iframe {
+    max-width: 100%;
+  }
+
+  .questionMaking {
+    padding: 1em 0.5em;
+  }
+}
+
+.completion-screen {
+  text-align: center;
+  padding: 2em;
+  font-family: var(--font-rounded);
+}
+
+.completion-screen h2 {
+  margin-bottom: 2em;
+  color: var(--text-main);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.action-buttons button {
+  background-color: #fff;
+  color: var(--text-main);
+  border: 1px solid var(--border-default);
+  border-radius: 18px;
+  padding: 1em 2em;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  transition: all 0.3s ease;
+  font-family: var(--font-rounded);
+}
+
+.action-buttons button:hover {
+  background-color: var(--color-green-400);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== モード選択 ==================== */
+.modeSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.modeSelectionTitle {
+  font-family: var(--font-rounded);
+  font-size: 2em;
+  color: var(--text-main);
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.modeCards {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .modeCards {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.modeCard {
+  flex: 1;
+  background-color: #fff;
+  border: 2px solid var(--border-light);
+  border-radius: 16px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.modeCard:hover {
+  border-color: var(--color-green-400);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modeIcon {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.modeTitle {
+  font-family: var(--font-rounded);
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text-main);
+  margin-bottom: 0.5em;
+}
+
+.modeDescription {
+  font-family: var(--font-rounded);
+  font-size: 1em;
+  color: var(--text-sub);
+  line-height: 1.5;
+}

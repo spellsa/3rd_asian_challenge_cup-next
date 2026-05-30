@@ -1,0 +1,58 @@
+.ResetCalculation {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.EnteringCalculation {
+  font-family: var(--font-rounded);
+  background-color: #fff;
+  border: solid 1px #333;
+  font-size: 24px;
+  border-radius: 5px;
+  padding: 0.3em;
+  width: 200px;
+}
+
+.EnteringCalculation:focus {
+  border: solid 3px var(--color-primary);
+  outline: none;
+}
+
+.QuestionCalculation {
+  background-color: white;
+  margin-right: 1em;
+  margin-bottom: 5%;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+  padding: 2em;
+  border-radius: 8px;
+}
+
+.QuestionCalculationTitle {
+  margin-bottom: 1.5em;
+}
+
+.QuestionCalculationNumber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: var(--text-sub);
+}
+
+.QuestionCalculationText {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.QuestionCalculationForm span {
+  font-family: var(--font-rounded);
+  font-size: 1.5em;
+}
+
+.formExplain {
+  font-size: 0.9em;
+  color: var(--text-sub);
+  margin-bottom: 0.5em;
+}

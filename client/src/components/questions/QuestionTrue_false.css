@@ -1,0 +1,45 @@
+.falseButton,
+.trueButton {
+  background-color: var(--bg-aliceblue);
+  border: solid 1px #b1b1b1;
+  width: 5em;
+  height: 3em;
+  border-radius: 5px;
+  margin-right: 4em;
+  margin-left: 1.5em;
+  font-size: 1em;
+  margin-top: 2em;
+  font-family: var(--font-rounded);
+}
+
+.falseButton:hover,
+.trueButton:hover {
+  border: solid 3px var(--text-sub);
+}
+
+.TrueFalseSelectedButton {
+  border: solid 3px var(--color-primary);
+  width: 5em;
+  height: 3em;
+  border-radius: 5px;
+  background-color: #84b9ff;
+  margin-right: 4em;
+  font-size: 1em;
+  margin-top: 2em;
+  margin-left: 1.5em;
+  font-family: var(--font-rounded);
+}
+
+.ResetTrueFalse {
+  background-color: #fff;
+  border: none;
+}
+
+.TrueFalse {
+  background-color: white;
+  margin-right: 1em;
+  height: 40%;
+  margin-bottom: 5%;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .3);
+  padding: 2em;
+}

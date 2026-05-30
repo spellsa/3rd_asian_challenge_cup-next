@@ -1,0 +1,59 @@
+:root {
+  /* ==============================================
+     Brand & Semantic Colors
+     ============================================== */
+  /* Primary Action (Blue based) */
+  --color-primary:       var(--color-blue-500);
+  --color-primary-hover: var(--color-blue-600);
+  --color-primary-light: var(--color-blue-50);
+
+  /* Secondary Brand (Green based - for Top page etc) */
+  --color-brand-green:   var(--color-green-500);
+  --color-brand-green-dark: var(--color-green-600);
+  --color-brand-green-light: var(--color-green-400);
+
+  /* Feedback Colors */
+  --color-success-bg:    var(--color-green-500); /* Some buttons use this */
+  --color-success-text:  var(--color-success);
+
+  --color-danger-bg:     var(--color-red-500);
+  --color-danger-text:   var(--color-red-600);
+  --color-danger-border: var(--color-red-500);
+
+  --color-info-bg:       var(--color-blue-500);
+
+  /* Backgrounds */
+  --bg-app:        var(--color-gray-100);    /* General App Background */
+  --bg-surface:    var(--color-white);       /* Card/Modal Background */
+  --bg-subtle:     var(--color-gray-50);     /* Slight contrast background */
+
+  /* Text */
+  --text-main:     var(--color-gray-800);
+  --text-sub:      var(--color-gray-600);
+  --text-light:    var(--color-gray-500);
+  --text-inverse:  var(--color-white);
+
+  /* Borders */
+  --border-default: var(--color-gray-300);
+  --border-light:   var(--color-gray-200);
+
+  /* ==============================================
+     Layout & UI Definitions
+     ============================================== */
+  /* Font Family */
+  --font-rounded: "Kosugi-Maru", var(--font-base);
+  --font-smart:   "smart-font", var(--font-base);
+
+  /* Z-Indices */
+  --z-dropdown: 100;
+  --z-sticky:   500;
+  --z-modal:    1000;
+  --z-toast:    9999;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-round: 50%;
+}

@@ -1,0 +1,66 @@
+:root {
+  /* Blue Palette */
+  --color-blue-50:  #e6f7ff;
+  --color-blue-100: #bae7ff;
+  --color-blue-400: #40a9ff;
+  --color-blue-500: #0091ff;  /* Primary Blue */
+  --color-blue-600: #007acc;
+  --color-blue-700: #0056b3;
+
+  /* Bootstrap Blue (for compatibility) */
+  --color-bootstrap-blue: #007bff;
+
+  /* Green Palette */
+  --color-green-50:  #f0f9f4;
+  --color-green-100: #e0f7ea;
+  --color-green-400: #93dfab;
+  --color-green-bright: #34db8d; /* Bright Mint Green */
+  --color-green-500: #5d9c59; /* Brand Green */
+  --color-green-600: #4a7d47;
+  --color-success:   #28a745;
+  --color-success-dark: #218838;
+
+  /* Red Palette */
+  --color-red-50:    #ffeef0;
+  --color-red-400:   #ff7875;
+  --color-red-500:   #ff4d4f;
+  --color-red-600:   #cb2431;
+  --color-danger:    #dc3545; /* Bootstrap Red */
+
+  /* Yellow/Amber Palette */
+  --color-amber-500: #f59e0b;
+
+  /* Grays / Neutrals */
+  --color-white:     #ffffff;
+  --color-gray-50:   #fafbfc;
+  --color-gray-100:  #f0f2f5; /* App Bg */
+  --color-gray-200:  #e1e4e8;
+  --color-gray-300:  #d9d9d9;
+  --color-gray-400:  #ced4da;
+  --color-gray-500:  #999999;
+  --color-gray-600:  #666666;
+  --color-gray-700:  #555555;
+  --color-gray-800:  #333333;
+  --color-gray-900:  #111827;
+
+  /* Special Backgrounds */
+  --bg-soft-accent:  #f4f8f7;
+  --bg-aliceblue:    #f0f8ff; /* aliceblue */
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

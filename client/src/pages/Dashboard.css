@@ -1,0 +1,292 @@
+/* Fonts are now handled globally */
+
+/* ヘッダー */
+.App {
+    background-color: #8ac4ff; /* Hardcoded blue, might want to use a variable or leave as specific dashboard brand color */
+    min-height: 5em;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.titleLink,
+.createLink,
+.dashboardLink {
+    text-decoration: none;
+    color: aliceblue; /* var(--bg-aliceblue)? No, text color on blue bg. --> white */
+    color: var(--text-inverse);
+}
+
+.titleLink {
+    font-size: clamp(24px, 5vw, 48px);
+    font-family: var(--font-rounded);
+    flex-shrink: 0;
+}
+
+.createLink {
+    font-family: var(--font-smart);
+    font-size: clamp(20px, 4vw, 36px);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.icon {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ボタン */
+.friendButton,
+.recentButton,
+.myButton {
+    color: var(--text-main);
+    font-family: var(--font-rounded);
+    background-color: #fff;
+    padding: 1.5em 2em;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    margin: 0.5em auto;
+    font-size: clamp(14px, 2vw, 18px);
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.friendButton:hover::after,
+.recentButton:hover::after,
+.myButton:hover::after {
+    content: "▶";
+    margin-left: 0.8em;
+    animation: fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.afterClick {
+    color: var(--text-main);
+    font-family: var(--font-rounded);
+    background-color: #fff;
+    padding: 1.5em 2em;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    margin: 1em auto;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    cursor: pointer;
+}
+
+.afterClick:hover::after {
+    content: "▼";
+    margin-left: 0.8em;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menuImage {
+    margin: 0;
+    max-height: 200px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* クイズリンク */
+.quizLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 8em;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-main);
+    margin: 0.75em 0;
+    padding: 1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quizLink:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.quizLink a {
+    text-decoration: none;
+    color: var(--text-main);
+    display: flex;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.quizLink h3,
+.quizLink span {
+    font-family: var(--font-rounded);
+    font-size: clamp(16px, 3vw, 24px);
+    margin: 0;
+    padding: 0.5em;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* クイズボタンコンテナ */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    max-width: 1200px;
+    margin: 2em auto 0;
+    padding: 0 1em;
+}
+
+.quizContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.quizContainer h3 {
+    text-align: center;
+    color: var(--text-sub);
+    margin: 2em 0;
+}
+
+.robbyButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 1em;
+    flex-wrap: wrap;
+}
+
+.quiz-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.DashboardLogo {
+    height: clamp(1.5em, 4vw, 2em);
+    width: auto;
+    position: relative;
+    margin: 0;
+}
+
+/* ==================== レスポンシブデザイン ==================== */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+    .App {
+        padding: 1em 2em;
+    }
+
+    .robbyButtons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quizLink {
+        margin: 0;
+    }
+
+    .friendButton,
+    .recentButton,
+    .myButton,
+    .afterClick {
+        width: auto;
+        min-width: 200px;
+    }
+
+    .buttonContainer {
+        gap: 2em;
+    }
+}
+
+/* デスクトップ (1024px以上) */
+@media (min-width: 1024px) {
+    .robbyButtons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5em;
+    }
+
+    .quizLink {
+        min-height: 10em;
+    }
+}
+
+/* モバイル (小画面) */
+@media (max-width: 480px) {
+    .App {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .createLink {
+        text-align: left;
+        order: 2;
+    }
+
+    .icon {
+        order: 3;
+        align-self: flex-end;
+        height: 2.5em;
+        width: 2.5em;
+    }
+
+    .titleLink {
+        order: 1;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .friendButton,
+    .recentButton,
+    .myButton,
+    .afterClick {
+        width: 100%;
+    }
+}
